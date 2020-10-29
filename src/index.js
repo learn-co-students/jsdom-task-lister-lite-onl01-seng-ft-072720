@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const formField = document.querySelector("#create-task-form");
   const todoList = document.querySelector("#tasks");
   const description = document.querySelector("#new-task-description");
+  const button = document.createElement("button");
 
 
   formField.addEventListener("submit", function(event) {
@@ -13,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function createTask() {
     let li = document.createElement("li");
     li.innerHTML = description.value;
-    // let button = 
     todoList.append(li);
     formField.reset();
   }
