@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const todoList = document.querySelector("#tasks");
   const description = document.querySelector("#new-task-description");
   const priority = document.querySelector("#priority");
-  // const button = document.createElement("button");
 
 
   formField.addEventListener("submit", function(event) {
@@ -19,11 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function createTask() {
     let li = document.createElement("li");
     li.innerHTML = description.value;
+
+    let button = document.createElement("button");
+    button.innerHTML = "X";
+    button.id = description.value;
+    button.addEventListener("click", function(event) {
+      li.remove();
+      button.remove();
+    })
+
+    li.append(button);
     li.style.color = priorityColor(priority.value);
-    // debugger
     todoList.append(li);
     formField.reset();
   }
+
+
+
 
   function priorityColor(priority) {
     switch(priority) {
